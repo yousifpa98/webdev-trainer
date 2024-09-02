@@ -231,28 +231,28 @@ let jsBeginnerQuestions = [
 ];
 
 const checkIfGameIsOver = () => {
-    const unansweredQuestions = jsBeginnerQuestions.filter(
-        (question) => !question.answered
-    );
-    if (unansweredQuestions.length === 0) {
-        document.getElementById("game").style.display = "none";
-        document.querySelector(".game-over").style.display = "block";
-        document.getElementById("final-score").textContent = score;        
-    }
-}
+  const unansweredQuestions = jsBeginnerQuestions.filter(
+    (question) => !question.answered
+  );
+  if (unansweredQuestions.length === 0) {
+    document.getElementById("game").style.display = "none";
+    document.querySelector(".game-over").style.display = "block";
+    document.getElementById("final-score").textContent = score;
+  }
+};
 
 const restartButton = document.getElementById("restart");
 const restartGame = () => {
-    jsBeginnerQuestions.forEach((question) => {
-        question.answered = false;
-    });
-    score = 0;
-    document.getElementById("score").textContent = score;
-    currentQuestion = pickRandomQuestion(jsBeginnerQuestions);
-    displayQuestion(currentQuestion);
-    document.getElementById("game").style.display = "flex";
-    document.getElementById("game-over").style.display = "none";
-}
+  jsBeginnerQuestions.forEach((question) => {
+    question.answered = false;
+  });
+  score = 0;
+  document.getElementById("score").textContent = score;
+  currentQuestion = pickRandomQuestion(jsBeginnerQuestions);
+  displayQuestion(currentQuestion);
+  document.getElementById("game").style.display = "flex";
+  document.querySelector(".game-over").style.display = "none";
+};
 
 restartButton.addEventListener("click", restartGame);
 
