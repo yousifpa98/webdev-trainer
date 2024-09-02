@@ -230,6 +230,32 @@ let jsBeginnerQuestions = [
   },
 ];
 
+const checkIfGameIsOver = () => {
+    const unansweredQuestions = jsBeginnerQuestions.filter(
+        (question) => !question.answered
+    );
+    if (unansweredQuestions.length === 0) {
+        document.getElementById("game").style.display = "none";
+        document.querySelector(".game-over").style.display = "block";
+        document.getElementById("final-score").textContent = score;        
+    }
+}
+
+const restartButton = document.getElementById("restart");
+const restartGame = () => {
+    jsBeginnerQuestions.forEach((question) => {
+        question.answered = false;
+    });
+    score = 0;
+    document.getElementById("score").textContent = score;
+    currentQuestion = pickRandomQuestion(jsBeginnerQuestions);
+    displayQuestion(currentQuestion);
+    document.getElementById("game").style.display = "flex";
+    document.getElementById("game-over").style.display = "none";
+}
+
+restartButton.addEventListener("click", restartGame);
+
 // Load progress from localStorage
 const loadProgress = () => {
   const savedProgress = localStorage.getItem("quizProgress");
@@ -352,7 +378,7 @@ const handleAnswer = (selectedOption) => {
   // Automatically close the modal and move to the next question after a delay
   setTimeout(() => {
     closeModalFunc(selectedElement);
-  }, 3000);
+  }, 1500);
 };
 
 // Function to close the modal and load the next question
@@ -393,4 +419,5 @@ const gameLoop = () => {
 };
 
 // Start the game loop
+checkIfGameIsOver();
 gameLoop();
