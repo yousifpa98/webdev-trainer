@@ -1,0 +1,161 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+  }
+  
+  .score-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  
+  section {
+    padding-top: 6rem;
+  }
+  
+  #game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    border: 1px solid #333;
+    padding: 1.5rem;
+    max-width: 90%;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #question {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .answer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+    width: 90%;
+    text-align: center;
+  }
+  
+  .answer-text {
+    padding: 1rem;
+    border: 1px solid #333;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .answer-text:hover {
+    background-color: #f4f4f4;
+  }
+  
+  /* Apply background colors for correct and incorrect answers */
+  .success {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .danger {
+    background-color: #ff4d4d;
+    color: #fff;
+  }
+  
+  #score {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  /* Modal styles */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.75); /* Black with opacity */
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  #progress-bar {
+    height: 5px;
+    background-color: #4caf50;
+    margin-top: 20px;
+    transition: width 3s linear;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  #modal-rightAns {
+    color: #4caf50;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  

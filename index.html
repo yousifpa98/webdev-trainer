@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>JS - Trainer</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>JS - Trainer</h1>
+        <div class="nav-stats">
+          <div class="score-box">
+            <h3>Score</h3>
+            <p id="score">0</p>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="game">
+        <div class="question-container">
+          <p id="question">What is the sum of 2 and 3?</p>
+        </div>
+        <div class="answer-container">
+          <div id="option1" class="answer-text">
+            <p id="awnser">5</p>
+          </div>
+          <div id="option2" class="answer-text">
+            <p id="awnser">3</p>
+          </div>
+          <div id="option3" class="answer-text">
+            <p id="awnser">3</p>
+          </div>
+          <div id="option4" class="answer-text">
+            <p id="awnser">3</p>
+          </div>
+        </div>
+      </section>
+      <div id="result-modal" class="modal">
+        <div class="modal-content">
+          <span id="close-modal" class="close">&times;</span>
+          <p id="modal-text"></p>
+          <p id="modal-rightAns"></p>
+          <div id="progress-bar"></div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
