@@ -1,247 +1,21 @@
-let jsBeginnerQuestions = [
-  {
-    question:
-      "Welches Schlüsselwort wird verwendet, um eine veränderliche Variable in ES6 zu deklarieren?",
-    options: {
-      a: "var",
-      b: "const",
-      c: "let",
-      d: "set",
-    },
-    correctAnswer: "c",
-    answered: false,
-  },
-  {
-    question:
-      "Welches Schlüsselwort wird verwendet, um eine unveränderliche Variable zu deklarieren?",
-    options: {
-      a: "let",
-      b: "const",
-      c: "var",
-      d: "immutable",
-    },
-    correctAnswer: "b",
-    answered: false,
-  },
-  {
-    question:
-      "Welcher der folgenden Werte ist vom Datentyp 'number' in JavaScript?",
-    options: {
-      a: "'42'",
-      b: "'true'",
-      c: "'null'",
-      d: "42",
-    },
-    correctAnswer: "d",
-    answered: false,
-  },
-  {
-    question: "Wie gibt man den Text 'Hello, World!' in der Konsole aus?",
-    options: {
-      a: "echo('Hello, World!');",
-      b: "console.log('Hello, World!');",
-      c: "print('Hello, World!');",
-      d: "console.print('Hello, World!');",
-    },
-    correctAnswer: "b",
-    answered: false,
-  },
-  {
-    question:
-      "Welches Symbol wird in JavaScript verwendet, um einen Wert zuzuweisen?",
-    options: {
-      a: "==",
-      b: "=",
-      c: "===",
-      d: "<-",
-    },
-    correctAnswer: "b",
-    answered: false,
-  },
-  {
-    question: "Was ist das Ergebnis des Ausdrucks `2 + 3 * 4` in JavaScript?",
-    options: {
-      a: "10",
-      b: "14",
-      c: "20",
-      d: "24",
-    },
-    correctAnswer: "b",
-    answered: false,
-  },
-  {
-    question: "Wie erstellt man ein Array in JavaScript?",
-    options: {
-      a: "let arr = (1, 2, 3);",
-      b: "let arr = {1, 2, 3};",
-      c: "let arr = <1, 2, 3>;",
-      d: "let arr = [1, 2, 3];",
-    },
-    correctAnswer: "d",
-    answered: false,
-  },
-  {
-    question: "Wie kann man den Wert einer Variablen `x` um 1 erhöhen?",
-    options: {
-      a: "x += 1;",
-      b: "x = x + 1;",
-      c: "x++;",
-      d: "Alle oben genannten",
-    },
-    correctAnswer: "d",
-    answered: false,
-  },
-  {
-    question: "Was gibt `typeof 42` in JavaScript zurück?",
-    options: {
-      a: "'number'",
-      b: "'string'",
-      c: "'boolean'",
-      d: "'undefined'",
-    },
-    correctAnswer: "a",
-    answered: false,
-  },
-  {
-    question:
-      "Welcher Operator wird verwendet, um zwei Werte auf Gleichheit zu prüfen, wobei der Typ berücksichtigt wird?",
-    options: {
-      a: "===",
-      b: "==",
-      c: "=",
-      d: "!=",
-    },
-    correctAnswer: "a",
-    answered: false,
-  },
-  {
-    question: "Wie erstellt man eine Zeichenkette (String) in JavaScript?",
-    options: {
-      a: "let str = 42;",
-      b: "let str = true;",
-      c: "let str = 'Hallo';",
-      d: "let str = [1, 2, 3];",
-    },
-    correctAnswer: "c",
-    answered: false,
-  },
-  {
-    question: "Welches der folgenden Symbole ist ein arithmetischer Operator?",
-    options: {
-      a: "&&",
-      b: "===",
-      c: "=>",
-      d: "+",
-    },
-    correctAnswer: "d",
-    answered: false,
-  },
-  {
-    question: "Wie subtrahiert man in JavaScript zwei Zahlen, z.B. 10 und 4?",
-    options: {
-      a: "10 - 4",
-      b: "10 + 4",
-      c: "10 * 4",
-      d: "10 / 4",
-    },
-    correctAnswer: "a",
-    answered: false,
-  },
-  {
-    question:
-      "Welcher Datentyp wird für Wahrheitswerte (true/false) verwendet?",
-    options: {
-      a: "number",
-      b: "boolean",
-      c: "string",
-      d: "null",
-    },
-    correctAnswer: "b",
-    answered: false,
-  },
-  {
-    question: "Wie weist man den Wert 'Hallo' einer Variablen `greeting` zu?",
-    options: {
-      a: "let greeting == 'Hallo';",
-      b: "greeting = 'Hallo';",
-      c: "let greeting = 'Hallo';",
-      d: "let greeting = Hallo;",
-    },
-    correctAnswer: "c",
-    answered: false,
-  },
-  {
-    question: "Welches Ergebnis liefert `typeof undefined`?",
-    options: {
-      a: "'undefined'",
-      b: "'null'",
-      c: "'object'",
-      d: "'string'",
-    },
-    correctAnswer: "a",
-    answered: false,
-  },
-  {
-    question:
-      "Welche der folgenden Aussagen ist eine gültige Variablendeklaration in ES6?",
-    options: {
-      a: "variable name;",
-      b: "let name;",
-      c: "var name;",
-      d: "declare name;",
-    },
-    correctAnswer: "b",
-    answered: false,
-  },
-  {
-    question:
-      "Welcher Operator wird verwendet, um zwei Bedingungen zu kombinieren?",
-    options: {
-      a: "&&",
-      b: "||",
-      c: "==",
-      d: "++",
-    },
-    correctAnswer: "a",
-    answered: false,
-  },
-  {
-    question: "Was ist das Ergebnis von `5 % 2` in JavaScript?",
-    options: {
-      a: "1",
-      b: "2",
-      c: "0",
-      d: "5",
-    },
-    correctAnswer: "a",
-    answered: false,
-  },
-  {
-    question:
-      "Wie deklarierst du eine Konstante `PI` mit dem Wert 3.14 in JavaScript?",
-    options: {
-      a: "const PI = 3.14;",
-      b: "let PI = 3.14;",
-      c: "var PI = 3.14;",
-      d: "constant PI = 3.14;",
-    },
-    correctAnswer: "a",
-    answered: false,
-  },
-];
-
 // Function to create and populate the header
 const createHeader = () => {
   const header = document.getElementById("header");
   const nav = document.createElement("nav");
   const h1 = document.createElement("h1");
-  h1.textContent = "JS - Trainer";
+
+  const link = document.createElement("a");
+  link.href = "index.html";
+  link.textContent = "Web Dev Trainer";
+  h1.appendChild(link);
 
   const navStats = document.createElement("div");
   navStats.className = "nav-stats";
+  navStats.id = "nav-stats"; // Added ID for easier access
 
   const scoreBox = document.createElement("div");
   scoreBox.className = "score-box";
+  scoreBox.id = "score-box"; // Added ID for easier access
 
   const h3 = document.createElement("h3");
   h3.textContent = "Score";
@@ -261,6 +35,53 @@ const createHeader = () => {
 // Function to create and populate the main content
 const createMainContent = () => {
   const main = document.getElementById("main");
+
+  // Menu section
+  const menuDiv = document.createElement("div");
+  menuDiv.id = "menu";
+
+  // Difficulty selection
+  const difficultySection = document.createElement("div");
+  difficultySection.className = "menu-section";
+  const difficultyLabel = document.createElement("label");
+  difficultyLabel.textContent = "Wähle eine Schwierigkeit:";
+  const difficultySelect = document.createElement("select");
+  difficultySelect.id = "difficulty";
+  ["beginner", "medium", "hard"].forEach((level) => {
+      const option = document.createElement("option");
+      option.value = level;
+      option.textContent = level.charAt(0).toUpperCase() + level.slice(1);
+      difficultySelect.appendChild(option);
+  });
+  difficultySection.appendChild(difficultyLabel);
+  difficultySection.appendChild(difficultySelect);
+
+  // Topic selection
+  const topicSection = document.createElement("div");
+  topicSection.className = "menu-section";
+  const topicLabel = document.createElement("label");
+  topicLabel.textContent = "Wähle ein Thema:";
+  const topicSelect = document.createElement("select");
+  topicSelect.id = "topic";
+  ["html", "css", "js"].forEach((topic) => {
+      const option = document.createElement("option");
+      option.value = topic;
+      option.textContent = topic.toUpperCase();
+      topicSelect.appendChild(option);
+  });
+  topicSection.appendChild(topicLabel);
+  topicSection.appendChild(topicSelect);
+
+  // Start game button
+  const startButton = document.createElement("button");
+  startButton.id = "start-game";
+  startButton.textContent = "Start Game";
+
+  // Append all sections to menu
+  menuDiv.appendChild(difficultySection);
+  menuDiv.appendChild(topicSection);
+  menuDiv.appendChild(startButton);
+  main.appendChild(menuDiv);
 
   // Game over section
   const gameOverDiv = document.createElement("div");
@@ -285,6 +106,7 @@ const createMainContent = () => {
   // Game section
   const gameSection = document.createElement("section");
   gameSection.id = "game";
+  gameSection.style.display = "none"; // Hide the game section initially
 
   const questionContainer = document.createElement("div");
   questionContainer.className = "question-container";
@@ -299,14 +121,14 @@ const createMainContent = () => {
   answerContainer.className = "answer-container";
 
   ["option1", "option2", "option3", "option4"].forEach((id) => {
-    const optionDiv = document.createElement("div");
-    optionDiv.id = id;
-    optionDiv.className = "answer-text";
+      const optionDiv = document.createElement("div");
+      optionDiv.id = id;
+      optionDiv.className = "answer-text";
 
-    const optionP = document.createElement("p");
-    optionDiv.appendChild(optionP);
+      const optionP = document.createElement("p");
+      optionDiv.appendChild(optionP);
 
-    answerContainer.appendChild(optionDiv);
+      answerContainer.appendChild(optionDiv);
   });
 
   gameSection.appendChild(answerContainer);
@@ -340,34 +162,64 @@ const createMainContent = () => {
   modalContentDiv.appendChild(progressBarDiv);
   modalDiv.appendChild(modalContentDiv);
   main.appendChild(modalDiv);
+
+  // Event listener for the start game button
+  startButton.addEventListener("click", () => {
+      const selectedDifficulty = difficultySelect.value;
+      const selectedTopic = topicSelect.value;
+      startGame(selectedDifficulty, selectedTopic);
+  });
 };
 
-// Call the functions to create the content
+// Function to start the game based on selected difficulty and topic
+const startGame = (difficulty, topic) => {
+  // Hide the menu and show the game section
+  document.getElementById("menu").style.display = "none";
+  document.getElementById("game").style.display = "flex";
+
+  // Hide the score when in the menu
+  document.getElementById("nav-stats").style.display = "block";
+
+  // Load the selected questions
+  const selectedQuestions = questions[difficulty][topic];
+  currentQuestions = selectedQuestions;
+
+  // Reset the score
+  score = 0;
+  document.getElementById("score").textContent = score;
+
+  // Start the game loop
+  currentQuestion = pickRandomQuestion(currentQuestions);
+  gameLoop();
+};
+
 createHeader();
 createMainContent();
 
+// Rest of your existing game logic
 let score = 0;
+let currentQuestions = [];
 
 const checkIfGameIsOver = () => {
-  const unansweredQuestions = jsBeginnerQuestions.filter(
-    (question) => !question.answered
+  const unansweredQuestions = currentQuestions.filter(
+      (question) => !question.answered
   );
   if (unansweredQuestions.length === 0) {
-    document.getElementById("game").style.display = "none";
-    document.querySelector(".game-over").style.display = "block";
-    document.getElementById("final-score").textContent = score;
-    clearProgress(); // Clear progress when the quiz is completed
+      document.getElementById("game").style.display = "none";
+      document.querySelector(".game-over").style.display = "block";
+      document.getElementById("final-score").textContent = score;
+      clearProgress(); // Clear progress when the quiz is completed
   }
 };
 
 const restartButton = document.getElementById("restart");
 const restartGame = () => {
-  jsBeginnerQuestions.forEach((question) => {
-    question.answered = false;
+  currentQuestions.forEach((question) => {
+      question.answered = false;
   });
   score = 0;
   document.getElementById("score").textContent = score;
-  currentQuestion = pickRandomQuestion(jsBeginnerQuestions);
+  currentQuestion = pickRandomQuestion(currentQuestions);
   displayQuestion(currentQuestion);
   document.getElementById("game").style.display = "flex";
   document.querySelector(".game-over").style.display = "none";
@@ -380,18 +232,18 @@ restartButton.addEventListener("click", restartGame);
 const loadProgress = () => {
   const savedProgress = localStorage.getItem("quizProgress");
   if (savedProgress) {
-    const progress = JSON.parse(savedProgress);
-    score = progress.score;
-    jsBeginnerQuestions = progress.questions;
-    document.getElementById("score").textContent = score;
+      const progress = JSON.parse(savedProgress);
+      score = progress.score;
+      currentQuestions = progress.questions;
+      document.getElementById("score").textContent = score;
   }
 };
 
 // Save progress to localStorage
 const saveProgress = () => {
   const progress = {
-    score: score,
-    questions: jsBeginnerQuestions,
+      score: score,
+      questions: currentQuestions,
   };
   localStorage.setItem("quizProgress", JSON.stringify(progress));
 };
@@ -404,10 +256,10 @@ const clearProgress = () => {
 // Function to pick a random unanswered question
 const pickRandomQuestion = (questions) => {
   const unansweredQuestions = questions.filter(
-    (question) => !question.answered
+      (question) => !question.answered
   );
   if (unansweredQuestions.length === 0) {
-    return null; // No questions left
+      return null; // No questions left
   }
   const randomIndex = Math.floor(Math.random() * unansweredQuestions.length);
   return unansweredQuestions[randomIndex];
@@ -416,7 +268,7 @@ const pickRandomQuestion = (questions) => {
 // Load the saved progress if available
 loadProgress();
 
-let currentQuestion = pickRandomQuestion(jsBeginnerQuestions);
+let currentQuestion = pickRandomQuestion(currentQuestions);
 const questionElement = document.getElementById("question");
 const option1 = document.getElementById("option1");
 const option2 = document.getElementById("option2");
@@ -435,9 +287,9 @@ const displayQuestion = (questionObj) => {
 // Function to check the answer and update the score
 const checkAnswer = (selectedOption, correctAnswer) => {
   if (selectedOption === correctAnswer) {
-    score++;
-    document.getElementById("score").textContent = score;
-    return true;
+      score++;
+      document.getElementById("score").textContent = score;
+      return true;
   }
   return false;
 };
@@ -455,27 +307,27 @@ const handleAnswer = (selectedOption) => {
 
   let selectedElement;
   if (selectedOption === "a") {
-    selectedElement = option1;
+      selectedElement = option1;
   } else if (selectedOption === "b") {
-    selectedElement = option2;
+      selectedElement = option2;
   } else if (selectedOption === "c") {
-    selectedElement = option3;
+      selectedElement = option3;
   } else if (selectedOption === "d") {
-    selectedElement = option4;
+      selectedElement = option4;
   }
 
   // Display result in the modal and apply the correct class
   if (correct) {
-    selectedElement.classList.add("success");
-    modalText.textContent = "Korrekt!";
+      selectedElement.classList.add("success");
+      modalText.textContent = "Korrekt!";
   } else {
-    selectedElement.classList.add("danger");
-    modalText.textContent = "Falsch!";
+      selectedElement.classList.add("danger");
+      modalText.textContent = "Falsch!";
   }
 
   // Always show the correct answer in the modal
   modalRightAns.textContent = `Die richtige Antwort ist: ${
-    currentQuestion.options[currentQuestion.correctAnswer]
+      currentQuestion.options[currentQuestion.correctAnswer]
   }`;
 
   // Show the modal
@@ -484,7 +336,7 @@ const handleAnswer = (selectedOption) => {
   // Reset and start the progress bar
   progressBar.style.width = "100%";
   setTimeout(() => {
-    progressBar.style.width = "0%";
+      progressBar.style.width = "0%";
   }, 10);
 
   // Mark the current question as answered
@@ -495,7 +347,7 @@ const handleAnswer = (selectedOption) => {
 
   // Automatically close the modal and move to the next question after a delay
   setTimeout(() => {
-    closeModalFunc(selectedElement);
+      closeModalFunc(selectedElement);
   }, 1500);
 };
 
@@ -505,15 +357,15 @@ const closeModalFunc = (selectedElement) => {
   modal.style.display = "none";
   // Remove previous color classes
   if (selectedElement) {
-    selectedElement.classList.remove("success", "danger");
+      selectedElement.classList.remove("success", "danger");
   }
 
   // Load the next question
-  currentQuestion = pickRandomQuestion(jsBeginnerQuestions);
+  currentQuestion = pickRandomQuestion(currentQuestions);
   if (currentQuestion) {
-    displayQuestion(currentQuestion);
+      displayQuestion(currentQuestion);
   } else {
-    checkIfGameIsOver(); // Check if the game is over when there are no more questions
+      checkIfGameIsOver(); // Check if the game is over when there are no more questions
   }
 };
 
@@ -531,7 +383,7 @@ option4.addEventListener("click", () => handleAnswer("d"));
 const gameLoop = () => {
   checkIfGameIsOver(); // Check if the game is already over when starting
   if (currentQuestion) {
-    displayQuestion(currentQuestion);
+      displayQuestion(currentQuestion);
   }
 };
 
