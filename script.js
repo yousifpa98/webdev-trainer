@@ -230,6 +230,124 @@ let jsBeginnerQuestions = [
   },
 ];
 
+// Function to create and populate the header
+const createHeader = () => {
+  const header = document.getElementById("header");
+  const nav = document.createElement("nav");
+  const h1 = document.createElement("h1");
+  h1.textContent = "JS - Trainer";
+
+  const navStats = document.createElement("div");
+  navStats.className = "nav-stats";
+
+  const scoreBox = document.createElement("div");
+  scoreBox.className = "score-box";
+
+  const h3 = document.createElement("h3");
+  h3.textContent = "Score";
+
+  const scoreP = document.createElement("p");
+  scoreP.id = "score";
+  scoreP.textContent = "0";
+
+  scoreBox.appendChild(h3);
+  scoreBox.appendChild(scoreP);
+  navStats.appendChild(scoreBox);
+  nav.appendChild(h1);
+  nav.appendChild(navStats);
+  header.appendChild(nav);
+};
+
+// Function to create and populate the main content
+const createMainContent = () => {
+  const main = document.getElementById("main");
+
+  // Game over section
+  const gameOverDiv = document.createElement("div");
+  gameOverDiv.className = "game-over";
+  gameOverDiv.style.display = "none";
+
+  const gameOverH2 = document.createElement("h2");
+  gameOverH2.textContent = "Du hast alle Fragen beantwortet";
+
+  const gameOverP = document.createElement("p");
+  gameOverP.innerHTML = 'Deine Punktzahl ist: <span id="final-score">0</span>';
+
+  const restartButton = document.createElement("button");
+  restartButton.id = "restart";
+  restartButton.textContent = "Restart";
+
+  gameOverDiv.appendChild(gameOverH2);
+  gameOverDiv.appendChild(gameOverP);
+  gameOverDiv.appendChild(restartButton);
+  main.appendChild(gameOverDiv);
+
+  // Game section
+  const gameSection = document.createElement("section");
+  gameSection.id = "game";
+
+  const questionContainer = document.createElement("div");
+  questionContainer.className = "question-container";
+
+  const questionP = document.createElement("p");
+  questionP.id = "question";
+
+  questionContainer.appendChild(questionP);
+  gameSection.appendChild(questionContainer);
+
+  const answerContainer = document.createElement("div");
+  answerContainer.className = "answer-container";
+
+  ["option1", "option2", "option3", "option4"].forEach((id) => {
+    const optionDiv = document.createElement("div");
+    optionDiv.id = id;
+    optionDiv.className = "answer-text";
+
+    const optionP = document.createElement("p");
+    optionDiv.appendChild(optionP);
+
+    answerContainer.appendChild(optionDiv);
+  });
+
+  gameSection.appendChild(answerContainer);
+  main.appendChild(gameSection);
+
+  // Modal section
+  const modalDiv = document.createElement("div");
+  modalDiv.id = "result-modal";
+  modalDiv.className = "modal";
+
+  const modalContentDiv = document.createElement("div");
+  modalContentDiv.className = "modal-content";
+
+  const closeModalSpan = document.createElement("span");
+  closeModalSpan.id = "close-modal";
+  closeModalSpan.className = "close";
+  closeModalSpan.innerHTML = "&times;";
+
+  const modalTextP = document.createElement("p");
+  modalTextP.id = "modal-text";
+
+  const modalRightAnsP = document.createElement("p");
+  modalRightAnsP.id = "modal-rightAns";
+
+  const progressBarDiv = document.createElement("div");
+  progressBarDiv.id = "progress-bar";
+
+  modalContentDiv.appendChild(closeModalSpan);
+  modalContentDiv.appendChild(modalTextP);
+  modalContentDiv.appendChild(modalRightAnsP);
+  modalContentDiv.appendChild(progressBarDiv);
+  modalDiv.appendChild(modalContentDiv);
+  main.appendChild(modalDiv);
+};
+
+// Call the functions to create the content
+createHeader();
+createMainContent();
+
+let score = 0;
+
 const checkIfGameIsOver = () => {
   const unansweredQuestions = jsBeginnerQuestions.filter(
     (question) => !question.answered
@@ -238,6 +356,7 @@ const checkIfGameIsOver = () => {
     document.getElementById("game").style.display = "none";
     document.querySelector(".game-over").style.display = "block";
     document.getElementById("final-score").textContent = score;
+    clearProgress(); // Clear progress when the quiz is completed
   }
 };
 
@@ -252,6 +371,7 @@ const restartGame = () => {
   displayQuestion(currentQuestion);
   document.getElementById("game").style.display = "flex";
   document.querySelector(".game-over").style.display = "none";
+  saveProgress(); // Save the reset progress
 };
 
 restartButton.addEventListener("click", restartGame);
@@ -292,8 +412,6 @@ const pickRandomQuestion = (questions) => {
   const randomIndex = Math.floor(Math.random() * unansweredQuestions.length);
   return unansweredQuestions[randomIndex];
 };
-
-let score = 0;
 
 // Load the saved progress if available
 loadProgress();
@@ -386,15 +504,16 @@ const closeModalFunc = (selectedElement) => {
   // Hide the modal
   modal.style.display = "none";
   // Remove previous color classes
-  selectedElement.classList.remove("success", "danger");
+  if (selectedElement) {
+    selectedElement.classList.remove("success", "danger");
+  }
 
   // Load the next question
-  currentQuestion = pickRandomQuestion(jsBeginnerQuestions); // Update currentQuestion with the new question
+  currentQuestion = pickRandomQuestion(jsBeginnerQuestions);
   if (currentQuestion) {
     displayQuestion(currentQuestion);
   } else {
-    alert("Du hast das Quiz abgeschlossen!");
-    clearProgress(); // Clear progress when the quiz is completed
+    checkIfGameIsOver(); // Check if the game is over when there are no more questions
   }
 };
 
@@ -402,7 +521,6 @@ const closeModalFunc = (selectedElement) => {
 closeModal.addEventListener("click", () => {
   closeModalFunc(document.querySelector(".success, .danger"));
 });
-
 // Add event listeners to the answer options
 option1.addEventListener("click", () => handleAnswer("a"));
 option2.addEventListener("click", () => handleAnswer("b"));
@@ -411,13 +529,11 @@ option4.addEventListener("click", () => handleAnswer("d"));
 
 // Initialize the game
 const gameLoop = () => {
+  checkIfGameIsOver(); // Check if the game is already over when starting
   if (currentQuestion) {
     displayQuestion(currentQuestion);
-  } else {
-    alert("No questions available.");
   }
 };
 
 // Start the game loop
-checkIfGameIsOver();
 gameLoop();
